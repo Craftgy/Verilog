@@ -1,0 +1,17 @@
+digraph "add_4" {
+rankdir="LR";
+remincross=true;
+n2 [ shape=octagon, label="C", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="sum", color="black", fontcolor="black" ];
+n4 [ shape=octagon, label="Y", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="X", color="black", fontcolor="black" ];
+{ rank="source"; n4; n5;}
+{ rank="sink"; n2; n3;}
+c8 [ shape=record, label="{{<p6> A|<p7> B}|$1\n$add|{<p4> Y}}" ];
+x0 [ shape=record, style=rounded, label="<s1> 4:4 - 0:0 |<s0> 3:0 - 3:0 " ];
+c8:p4:e -> x0:w [color="black", style="setlinewidth(3)", label=""];
+x0:s1:e -> n2:w [color="black", label=""];
+x0:s0:e -> n3:w [color="black", style="setlinewidth(3)", label=""];
+n4:e -> c8:p7:w [color="black", style="setlinewidth(3)", label=""];
+n5:e -> c8:p6:w [color="black", style="setlinewidth(3)", label=""];
+}
