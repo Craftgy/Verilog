@@ -1,0 +1,35 @@
+# Read Verilog source file and convert to internal representation
+read_verilog counter.v
+
+# Elaborate the design hierarchy
+hierarchy -check -top counter
+
+# show0: print counter without high-level stuff
+show -notitle -stretch -format pdf -prefix counter_00
+
+# the high-level stuff
+proc; opt; memory; opt; fsm; opt
+
+# show1: print counter with high-level stuff
+show -notitle -stretch -format pdf -prefix counter_01
+
+# mapping to internal cell library
+techmap; opt
+splitnets -ports;;
+
+# show3: print counter mappped with internal cell library
+show -notitle -stretch -format pdf -prefix counter_02
+
+# mapping flip-flops to mycells.lib
+dfflibmap -liberty mycells.lib
+
+# mapping logic to mycells.lib
+abc -liberty mycells.lib
+
+# cleanup
+clean
+
+# show4: print counter with internal cell lib and mycell lib
+show -notitle -stretch -lib mycells.v -format pdf -prefix counter_03
+
+shell
