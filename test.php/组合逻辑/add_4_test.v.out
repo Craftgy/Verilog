@@ -1,0 +1,91 @@
+#! /usr/local/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x7fec53705830 .scope module, "test" "test" 2 3;
+ .timescale -9 -12;
+RS_0x7fec55032008 .resolv tri, L_0x7fec537059a0, L_0x7fec5370a830;
+v0x7fec5360d210_0 .net8 "C", 0 0, RS_0x7fec55032008;  2 drivers
+v0x7fec5360d2f0_0 .var "X", 3 0;
+v0x7fec5360d3c0_0 .var "Y", 3 0;
+RS_0x7fec55032188 .resolv tri, L_0x7fec5370a570, L_0x7fec5370a950;
+v0x7fec5360d490_0 .net8 "sum", 3 0, RS_0x7fec55032188;  2 drivers
+S_0x7fec5370a400 .scope module, "test1" "add_4" 2 5, 3 1 0, S_0x7fec53705830;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "X";
+    .port_info 1 /INPUT 4 "Y";
+    .port_info 2 /OUTPUT 4 "sum";
+    .port_info 3 /OUTPUT 1 "C";
+v0x7fec55306c00_0 .net8 "C", 0 0, RS_0x7fec55032008;  alias, 2 drivers
+v0x7fec5360c260_0 .net "X", 3 0, v0x7fec5360d2f0_0;  1 drivers
+v0x7fec5360c320_0 .net "Y", 3 0, v0x7fec5360d3c0_0;  1 drivers
+L_0x7fec55063050 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x7fec5360c3e0_0 .net *"_ivl_10", 0 0, L_0x7fec55063050;  1 drivers
+v0x7fec5360c490_0 .net *"_ivl_11", 4 0, L_0x7fec5370a750;  1 drivers
+v0x7fec5360c580_0 .net *"_ivl_3", 4 0, L_0x7fec5370a610;  1 drivers
+L_0x7fec55063008 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x7fec5360c630_0 .net *"_ivl_6", 0 0, L_0x7fec55063008;  1 drivers
+v0x7fec5360c6e0_0 .net *"_ivl_7", 4 0, L_0x7fec5370a6b0;  1 drivers
+v0x7fec5360c790_0 .net8 "sum", 3 0, RS_0x7fec55032188;  alias, 2 drivers
+L_0x7fec537059a0 .part L_0x7fec5370a750, 4, 1;
+L_0x7fec5370a570 .part L_0x7fec5370a750, 0, 4;
+L_0x7fec5370a610 .concat [ 4 1 0 0], v0x7fec5360d2f0_0, L_0x7fec55063008;
+L_0x7fec5370a6b0 .concat [ 4 1 0 0], v0x7fec5360d3c0_0, L_0x7fec55063050;
+L_0x7fec5370a750 .arith/sum 5, L_0x7fec5370a610, L_0x7fec5370a6b0;
+S_0x7fec5360c900 .scope module, "test2" "add_4" 2 6, 3 1 0, S_0x7fec53705830;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "X";
+    .port_info 1 /INPUT 4 "Y";
+    .port_info 2 /OUTPUT 4 "sum";
+    .port_info 3 /OUTPUT 1 "C";
+v0x7fec5360cb50_0 .net8 "C", 0 0, RS_0x7fec55032008;  alias, 2 drivers
+v0x7fec5360cc10_0 .net "X", 3 0, v0x7fec5360d2f0_0;  alias, 1 drivers
+v0x7fec5360cca0_0 .net "Y", 3 0, v0x7fec5360d3c0_0;  alias, 1 drivers
+L_0x7fec550630e0 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x7fec5360cd50_0 .net *"_ivl_10", 0 0, L_0x7fec550630e0;  1 drivers
+v0x7fec5360cde0_0 .net *"_ivl_11", 4 0, L_0x7fec5370ad30;  1 drivers
+v0x7fec5360ced0_0 .net *"_ivl_3", 4 0, L_0x7fec5370aa70;  1 drivers
+L_0x7fec55063098 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x7fec5360cf80_0 .net *"_ivl_6", 0 0, L_0x7fec55063098;  1 drivers
+v0x7fec5360d030_0 .net *"_ivl_7", 4 0, L_0x7fec5370abd0;  1 drivers
+v0x7fec5360d0e0_0 .net8 "sum", 3 0, RS_0x7fec55032188;  alias, 2 drivers
+L_0x7fec5370a830 .part L_0x7fec5370ad30, 4, 1;
+L_0x7fec5370a950 .part L_0x7fec5370ad30, 0, 4;
+L_0x7fec5370aa70 .concat [ 4 1 0 0], v0x7fec5360d2f0_0, L_0x7fec55063098;
+L_0x7fec5370abd0 .concat [ 4 1 0 0], v0x7fec5360d3c0_0, L_0x7fec550630e0;
+L_0x7fec5370ad30 .arith/sum 5, L_0x7fec5370aa70, L_0x7fec5370abd0;
+    .scope S_0x7fec53705830;
+T_0 ;
+    %delay 10000, 0;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v0x7fec5360d2f0_0, 0, 4;
+    %delay 20000, 0;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v0x7fec5360d3c0_0, 0, 4;
+    %delay 30000, 0;
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v0x7fec5360d2f0_0, 0, 4;
+    %delay 50000, 0;
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v0x7fec5360d3c0_0, 0, 4;
+    %delay 100000, 0;
+    %end;
+    .thread T_0;
+    .scope S_0x7fec53705830;
+T_1 ;
+    %vpi_call 2 22 "$dumpfile", "add_4.vcd" {0 0 0};
+    %vpi_call 2 23 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x7fec5370a400 {0 0 0};
+    %vpi_call 2 24 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x7fec5360c900 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "add_4_test.v";
+    "./add_4.v";
