@@ -1,0 +1,13 @@
+digraph "mult_4" {
+rankdir="LR";
+remincross=true;
+n1 [ shape=octagon, label="Product", color="black", fontcolor="black" ];
+n2 [ shape=octagon, label="X", color="black", fontcolor="black" ];
+n3 [ shape=octagon, label="Y", color="black", fontcolor="black" ];
+{ rank="source"; n2; n3;}
+{ rank="sink"; n1;}
+c6 [ shape=record, label="{{<p4> A|<p5> B}|$1\n$mul|{<p3> Y}}" ];
+c6:p3:e -> n1:w [color="black", style="setlinewidth(3)", label=""];
+n2:e -> c6:p4:w [color="black", style="setlinewidth(3)", label=""];
+n3:e -> c6:p5:w [color="black", style="setlinewidth(3)", label=""];
+}

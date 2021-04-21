@@ -1,0 +1,32 @@
+$date
+	Wed Apr 21 09:58:09 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test $end
+$scope module test1 $end
+$var wire 4 ! X [3:0] $end
+$var wire 4 " Y [3:0] $end
+$var wire 8 # Product [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx #
+bx "
+bx !
+$end
+#10000
+b11001 #
+b101 "
+b101 !
+#40000
+b1010 "
+b1100100 #
+b1010 !
+#140000

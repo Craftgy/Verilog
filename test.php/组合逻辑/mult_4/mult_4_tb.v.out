@@ -1,0 +1,58 @@
+#! /usr/local/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x7f8247f07030 .scope module, "test" "test" 2 3;
+ .timescale -9 -12;
+v0x7f8247c0aa90_0 .net "Product", 7 0, L_0x7f8247c0af80;  1 drivers
+v0x7f8247c0ab60_0 .var "X", 3 0;
+v0x7f8247c0ac10_0 .var "Y", 3 0;
+S_0x7f8247f071a0 .scope module, "test1" "mult_4" 2 5, 3 1 0, S_0x7f8247f07030;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "X";
+    .port_info 1 /INPUT 4 "Y";
+    .port_info 2 /OUTPUT 8 "Product";
+v0x7f8247f07310_0 .net "Product", 7 0, L_0x7f8247c0af80;  alias, 1 drivers
+v0x7f8247c0a610_0 .net "X", 3 0, v0x7f8247c0ab60_0;  1 drivers
+v0x7f8247c0a6d0_0 .net "Y", 3 0, v0x7f8247c0ac10_0;  1 drivers
+v0x7f8247c0a780_0 .net *"_ivl_0", 7 0, L_0x7f8247c0ace0;  1 drivers
+L_0x7f8249363008 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v0x7f8247c0a810_0 .net *"_ivl_3", 3 0, L_0x7f8249363008;  1 drivers
+v0x7f8247c0a900_0 .net *"_ivl_4", 7 0, L_0x7f8247c0ae40;  1 drivers
+L_0x7f8249363050 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v0x7f8247c0a9b0_0 .net *"_ivl_7", 3 0, L_0x7f8249363050;  1 drivers
+L_0x7f8247c0ace0 .concat [ 4 4 0 0], v0x7f8247c0ab60_0, L_0x7f8249363008;
+L_0x7f8247c0ae40 .concat [ 4 4 0 0], v0x7f8247c0ac10_0, L_0x7f8249363050;
+L_0x7f8247c0af80 .arith/mult 8, L_0x7f8247c0ace0, L_0x7f8247c0ae40;
+    .scope S_0x7f8247f07030;
+T_0 ;
+    %delay 10000, 0;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v0x7f8247c0ab60_0, 0, 4;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v0x7f8247c0ac10_0, 0, 4;
+    %delay 30000, 0;
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v0x7f8247c0ab60_0, 0, 4;
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v0x7f8247c0ac10_0, 0, 4;
+    %delay 100000, 0;
+    %end;
+    .thread T_0;
+    .scope S_0x7f8247f07030;
+T_1 ;
+    %vpi_call 2 20 "$dumpfile", "mult_4.vcd" {0 0 0};
+    %vpi_call 2 21 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x7f8247f071a0 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mult_4_tb.v";
+    "./mult_4.v";
