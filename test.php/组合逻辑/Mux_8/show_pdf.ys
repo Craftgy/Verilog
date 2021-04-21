@@ -1,0 +1,35 @@
+# Read Verilog source file and convert to internal representation
+read_verilog Mux_8.v
+
+# Elaborate the design hierarchy
+hierarchy -check -top Mux_8
+
+# show0: print counter without high-level stuff
+show -notitle -stretch -format pdf -prefix 未经高级综合网表
+
+# the high-level stuff
+proc; opt; memory; opt; fsm; opt
+
+# show1: print counter with high-level stuff
+show -notitle -stretch -format pdf -prefix 高级综合网标
+
+# mapping to internal cell library
+techmap; opt
+splitnets -ports;;
+
+# show3: print counter mappped with internal cell library
+show -notitle -stretch -format pdf -prefix 映射到内建库后的网表
+
+# mapping flip-flops to mycells.lib
+dfflibmap -liberty mycells.lib
+
+# mapping logic to mycells.lib
+abc -liberty mycells.lib
+
+# cleanup
+clean
+
+# show4: print counter with internal cell lib and mycell lib
+show -notitle -stretch -lib mycells.v -format pdf -prefix 映射到自定义库后的counter网表
+
+shell

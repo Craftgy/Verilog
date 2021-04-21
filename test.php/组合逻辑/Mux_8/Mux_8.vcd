@@ -1,0 +1,55 @@
+$date
+	Wed Apr 21 10:50:27 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test $end
+$scope module test1 $end
+$var wire 3 ! addr [2:0] $end
+$var wire 8 " in1 [7:0] $end
+$var wire 8 # in2 [7:0] $end
+$var wire 8 $ in3 [7:0] $end
+$var wire 8 % in4 [7:0] $end
+$var wire 8 & in5 [7:0] $end
+$var wire 8 ' in6 [7:0] $end
+$var wire 8 ( in7 [7:0] $end
+$var wire 8 ) in8 [7:0] $end
+$var wire 1 * nCS $end
+$var reg 8 + Mout [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx +
+0*
+b11110 )
+b1101 (
+b1010 '
+b1001 &
+b101 %
+b110 $
+b10 #
+b1 "
+bx !
+$end
+#10000
+b10 +
+b1 !
+#20000
+b101 +
+b11 !
+#30000
+b1010 +
+b101 !
+#60000
+1*
+#90000
+b11110 +
+b111 !
+0*
+#190000

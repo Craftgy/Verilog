@@ -1,0 +1,41 @@
+digraph "compare_n" {
+rankdir="LR";
+remincross=true;
+n4 [ shape=octagon, label="X", color="black", fontcolor="black" ];
+n5 [ shape=octagon, label="XEY", color="black", fontcolor="black" ];
+n6 [ shape=octagon, label="XGY", color="black", fontcolor="black" ];
+n7 [ shape=octagon, label="XSY", color="black", fontcolor="black" ];
+n8 [ shape=octagon, label="Y", color="black", fontcolor="black" ];
+{ rank="source"; n4; n8;}
+{ rank="sink"; n5; n6; n7;}
+c11 [ shape=record, label="{{<p9> A|<p10> B}|$2\n$eq|{<p8> Y}}" ];
+c12 [ shape=record, label="{{<p9> A|<p10> B}|$3\n$gt|{<p8> Y}}" ];
+c13 [ shape=record, label="{{<p9> A|<p10> B}|$4\n$lt|{<p8> Y}}" ];
+v0 [ label="1'0" ];
+v1 [ label="1'1" ];
+c15 [ shape=record, label="{{<p9> A|<p10> B|<p14> S}|$12\n$mux|{<p8> Y}}" ];
+v2 [ label="1'0" ];
+v3 [ label="1'1" ];
+c16 [ shape=record, label="{{<p9> A|<p10> B|<p14> S}|$6\n$mux|{<p8> Y}}" ];
+v4 [ label="1'0" ];
+v5 [ label="1'1" ];
+c17 [ shape=record, label="{{<p9> A|<p10> B|<p14> S}|$9\n$mux|{<p8> Y}}" ];
+c11:p8:e -> c15:p14:w [color="black", label=""];
+c12:p8:e -> c17:p14:w [color="black", label=""];
+c13:p8:e -> c16:p14:w [color="black", label=""];
+n4:e -> c11:p9:w [color="black", style="setlinewidth(3)", label=""];
+n4:e -> c12:p9:w [color="black", style="setlinewidth(3)", label=""];
+n4:e -> c13:p9:w [color="black", style="setlinewidth(3)", label=""];
+c15:p8:e -> n5:w [color="black", label=""];
+c17:p8:e -> n6:w [color="black", label=""];
+c16:p8:e -> n7:w [color="black", label=""];
+n8:e -> c11:p10:w [color="black", style="setlinewidth(3)", label=""];
+n8:e -> c12:p10:w [color="black", style="setlinewidth(3)", label=""];
+n8:e -> c13:p10:w [color="black", style="setlinewidth(3)", label=""];
+v0:e -> c15:p9:w [color="black", label=""];
+v1:e -> c15:p10:w [color="black", label=""];
+v2:e -> c16:p9:w [color="black", label=""];
+v3:e -> c16:p10:w [color="black", label=""];
+v4:e -> c17:p9:w [color="black", label=""];
+v5:e -> c17:p10:w [color="black", label=""];
+}

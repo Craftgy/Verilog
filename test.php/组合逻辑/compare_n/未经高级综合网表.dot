@@ -1,0 +1,27 @@
+digraph "compare_n" {
+rankdir="LR";
+remincross=true;
+n10 [ shape=octagon, label="XEY", color="black", fontcolor="black" ];
+n11 [ shape=octagon, label="XSY", color="black", fontcolor="black" ];
+n12 [ shape=octagon, label="XGY", color="black", fontcolor="black" ];
+n13 [ shape=octagon, label="Y", color="black", fontcolor="black" ];
+n14 [ shape=octagon, label="X", color="black", fontcolor="black" ];
+{ rank="source"; n13; n14;}
+{ rank="sink"; n10; n11; n12;}
+c17 [ shape=record, label="{{<p15> A|<p16> B}|$4\n$lt|{<p13> Y}}" ];
+c18 [ shape=record, label="{{<p15> A|<p16> B}|$3\n$gt|{<p13> Y}}" ];
+c19 [ shape=record, label="{{<p15> A|<p16> B}|$2\n$eq|{<p13> Y}}" ];
+p0 [shape=box, style=rounded, label="PROC $1\ncompare_n.v:8.5-21.8"];
+p0:e -> n10:w [color="black", label=""];
+p0:e -> n11:w [color="black", label=""];
+p0:e -> n12:w [color="black", label=""];
+n13:e -> c17:p16:w [color="black", style="setlinewidth(3)", label=""];
+n13:e -> c18:p16:w [color="black", style="setlinewidth(3)", label=""];
+n13:e -> c19:p16:w [color="black", style="setlinewidth(3)", label=""];
+n14:e -> c17:p15:w [color="black", style="setlinewidth(3)", label=""];
+n14:e -> c18:p15:w [color="black", style="setlinewidth(3)", label=""];
+n14:e -> c19:p15:w [color="black", style="setlinewidth(3)", label=""];
+c17:p13:e -> p0:w [color="black", label=""];
+c18:p13:e -> p0:w [color="black", label=""];
+c19:p13:e -> p0:w [color="black", label=""];
+}
