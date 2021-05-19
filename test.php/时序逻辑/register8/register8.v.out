@@ -1,0 +1,49 @@
+#! /usr/local/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x7fa6e4e08110 .scope module, "register8" "register8" 2 1;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 8 "out";
+    .port_info 1 /INPUT 8 "data";
+    .port_info 2 /INPUT 1 "ena";
+    .port_info 3 /INPUT 1 "rst";
+    .port_info 4 /INPUT 1 "clk";
+o0x7fa6e4f32038 .functor BUFZ 1, C4<z>; HiZ drive
+o0x7fa6e4f32098 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x7fa6e4e185b0 .functor AND 1, o0x7fa6e4f32038, o0x7fa6e4f32098, C4<1>, C4<1>;
+v0x7fa6e4e055c0_0 .net *"_ivl_2", 0 0, L_0x7fa6e4e185b0;  1 drivers
+v0x7fa6e4e181c0_0 .net "clk", 0 0, o0x7fa6e4f32038;  0 drivers
+o0x7fa6e4f32068 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x7fa6e4e18260_0 .net "data", 7 0, o0x7fa6e4f32068;  0 drivers
+v0x7fa6e4e18300_0 .net "ena", 0 0, o0x7fa6e4f32098;  0 drivers
+v0x7fa6e4e183a0_0 .var "out", 7 0;
+o0x7fa6e4f320f8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fa6e4e18490_0 .net "rst", 0 0, o0x7fa6e4f320f8;  0 drivers
+E_0x7fa6e4e052a0 .event edge, L_0x7fa6e4e185b0;
+    .scope S_0x7fa6e4e08110;
+T_0 ;
+    %wait E_0x7fa6e4e052a0;
+    %load/vec4 v0x7fa6e4e181c0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %load/vec4 v0x7fa6e4e18260_0;
+    %assign/vec4 v0x7fa6e4e183a0_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %pushi/vec4 0, 0, 8;
+    %assign/vec4 v0x7fa6e4e183a0_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "register8.v";

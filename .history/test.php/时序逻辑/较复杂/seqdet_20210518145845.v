@@ -1,0 +1,5 @@
+module seqdet (
+    ports
+);
+    
+endmodule
